@@ -19,19 +19,24 @@ class ThreadedServer(object):
 
     #The following is threaded
     def listenToClient(self, client, address):
+        print('client added successfully')
         size = 1024
         while True:
             try:
                 data = client.recv(size)
                 if data:
+                    print('recieved: ', data.decode())
                     #give data as arg in the executable and redirect its output
                     #to retrieve output data
-                    proc = subprocess.Popen(['./test_exec', data], stdout=subprocess.PIPE,)
+                    proc = subprocess.Popen(['./pi', data], stdout=subprocess.PIPE,)
                     response = proc.communicate()[0]
                     #send it to the client
+                    print('sending: ', response.decode())
                     client.sendall(response)
                 else:
-                    raise error('Client disconnected')
+                    print('client disconnected')
+                    raise error('Client disconnected') #aborts the thread?
+                   
             except:
                 client.close()
                 return False
