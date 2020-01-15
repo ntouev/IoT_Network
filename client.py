@@ -1,3 +1,5 @@
+# Client software that takes input from the user
+
 import socket
 
 SERVER = "192.168.1.185"
@@ -8,7 +10,7 @@ client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect((SERVER, PORT))
 
 while True:
-    
+
     #user gives input
     out_data = input('Give input... ')
 

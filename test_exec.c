@@ -1,3 +1,8 @@
+/*
+ * Just a simple program to test the IoT_Network
+ * It receives an input from a client and returns a hello world response.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

@@ -1,3 +1,5 @@
+# A multithreaded server as Gateway software.
+
 import socket
 import threading
 import subprocess
@@ -5,7 +7,7 @@ import subprocess
 class ThreadedServer(object):
     def __init__(self, host, port):
         self.host = host
-        self.port = port
+        self.port = port to start a **client** run
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.sock.bind((self.host, self.port))
@@ -36,7 +38,7 @@ class ThreadedServer(object):
                 else:
                     print('client disconnected')
                     raise error('Client disconnected') #aborts the thread?
-                   
+
             except:
                 client.close()
                 return False
